@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{%block title %} Weather Navigator {% endblock %}</h1>
+{% if g.user %}
+    <a class="action" href = "{{url_for('weather.lookup')}}"> Look Up Weather</a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+
+{% endblock %}
