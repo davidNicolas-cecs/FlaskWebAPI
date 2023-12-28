@@ -3,12 +3,12 @@
 {% block header %}
 <h1>{%block title %} Weather Navigator {% endblock %}</h1>
 {% if g.user %}
-    <a class="action" href = "{{url_for('weather.lookup')}}"> Look Up Weather</a>
+    <a class="action" href = "{{url_for('weather.lookup')}}"> Look Up Weather (move this to the bottom and make no lookups</a>
     {% endif %}
 {% endblock %}
 
 {% block content %}
-
+<p>Here is home page</p>
 
 
 {% endblock %}
