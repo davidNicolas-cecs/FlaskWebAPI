@@ -2,13 +2,20 @@
 
 {% block header %}
 <h1>{%block title %} Weather Navigator {% endblock %}</h1>
-{% if g.user %}
-    <a class="action" href = "{{url_for('weather.lookup')}}"> Look Up Weather (move this to the bottom and make no lookups</a>
-    {% endif %}
 {% endblock %}
 
 {% block content %}
-<p>Here is home page</p>
+<h1>Enter a location to visit</h1>
+<form method="post">
+    <label for="city">City Name</label>
+    <input name="city" id="city" required>
+    
+    <label for="state_code"> State Code</label>
+    <input name="state_code" id="state_code">
 
+    <label for="country_code"> Country Code</label>
+    <input name="country_code" id="country_code">
 
+    <input type="submit" value="Search!">
+  </form>
 {% endblock %}

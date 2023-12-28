@@ -8,13 +8,14 @@
       <li><span>{{ g.user['username'] }}</span>
       <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
     {% else %}
+    {% block nav %} {% endblock %}
       <li><a href="{{ url_for('auth.register') }}">Register</a>
       <li><a href="{{ url_for('auth.login') }}">Log In</a>
     {% endif %}
   </ul>
 </nav>
 <section class="content">
-  <header>
+  <header><img src="../static/assets/clouds.png" alt="cloud LOGO" style="float:left;width:60px;height:40px;">
     {% block header %}{% endblock %}
   </header>
   {% for message in get_flashed_messages() %}
