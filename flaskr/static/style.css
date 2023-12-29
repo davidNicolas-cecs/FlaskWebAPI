@@ -2,6 +2,10 @@ html {
     font-family: sans-serif;
     background: lightblue;
     padding: 1rem;
+    background-image: url('../static/assets/sun.png');
+    background-repeat: no-repeat;
+
+
 }
 
 body {
