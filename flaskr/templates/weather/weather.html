@@ -1,13 +1,30 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>{%block title %} Weather Displayer  
-     {% endblock %}</h1>
+<h1>{%block title %} Weather Displayer  {% endblock %}</h1>
 {% endblock %}
-{% block nav %} <a href="{{ url_for('weather.index') }}">Go Back Home</a> {% endblock %}
+{% block nav %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
 
 {% block content %}
-<h1> Your Location! </h1>
+<h1> Your Location {{name}}! </h1>
 
-<p> {{ long }} {{lat}}</p>
+<h5>Tempature</h4>
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+     <p> {{temp}}</p>
+</div>
+<h5>Feels Like</h4>
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+     <p> {{feels_like}}</p>
+</div>
+
+<h5>Pressure</h4>
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+     <p> {{ pressure}}</p>
+</div>
+
+ <h5>Humidity</h4>
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+     <p> {{ humidity}}</p>
+</div>
+
 {% endblock %}

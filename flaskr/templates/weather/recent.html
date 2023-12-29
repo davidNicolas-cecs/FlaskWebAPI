@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+<h1>{%block title %}Recent Searches{% endblock %}</h1>
+{% endblock %}
+{% if g.user %}
+<li><span>{{ g.user['username'] }}</span>
+{% block nav1 %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
+{% endif %}
+
+
+{% block content %}
+
+
+
+
+{% endblock %}
