@@ -20,8 +20,6 @@ def register():
         #initialize error messages
         error = None
 
-
-
         if not username:
             error = 'Username is requried'
         elif not password:

@@ -4,15 +4,31 @@
 {% block header %}
 <h1>{%block title %}Recent Searches{% endblock %}</h1>
 {% endblock %}
-{% if g.user %}
-<li><span>{{ g.user['username'] }}</span>
-{% block nav1 %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
-{% endif %}
+
+{% block nav %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
 
 
 {% block content %}
-
-
-
+<div class="list-group">
+    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)" aria-current="true">
+      The current button
+    </button>
+    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A second button item</button>
+    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A third button item</button>
+    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A fourth button item</button>
+    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A fourth button item</button>
+    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A fourth button item</button>
+    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A fourth button item</button>
+  </div>
+  <script>
+    function makeActive(event) {
+       var previous = document.getElementsByClassName("active");
+       if (previous.length > 0) {
+          previous[0].className = previous[0].className.replace(" active", "");
+       }
+       event.target.className += " active";
+    }
+ </script>
 
 {% endblock %}
+

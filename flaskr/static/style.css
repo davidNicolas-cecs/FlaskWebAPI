@@ -140,3 +140,30 @@ input[type=submit] {
     align-self: start;
     min-width: 10em;
 }
+
+
+
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.list-group-item:hover {
+    background-color: #f8f8f8;
+}
+
+.list-group-item.active {
+    background-color: lightblue;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+.list-group-item.active:hover {
+    background-color: lightblue;
+}
