@@ -1,21 +1,39 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>{%block title %} Weather Navigator {% endblock %}</h1>
+<h2>{%block title %} Weather Navigator {% endblock %}</h2>
 {% endblock %}
 
 {% block content %}
-<h1>Enter a location to visit</h1>
+<h3>Enter a location to visit</h3>
 <form method="post">
     <label for="city">City Name</label>
     <input name="city" id="city" required>
     
-    <label for="state_code"> State Code</label>
+    <label for="state_code"> State Code (US Only)</label>
     <input name="state_code" id="state_code">
 
     <label for="country_code"> Country Code</label>
     <input name="country_code" id="country_code">
 
-    <input type="submit" value="Search!">
+    <div class="check-boxes">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="humidity">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Humidity</label>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="pressure">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Atmospheric Pressure</label>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="feels_like">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Feels like Temp</label>
+      </div>
+
+    </div>
+    <button class="btn btn-primary" type="submit">Search!</button>
+
+
+    
   </form>
 {% endblock %}
