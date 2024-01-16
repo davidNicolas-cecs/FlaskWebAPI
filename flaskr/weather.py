@@ -207,4 +207,22 @@ def searches():
     
     Returns: html display with data
     '''
-    return render_template('weather/recent.html')
+    db = get_db()
+    
+    if g.user:
+        #get users recent searches
+        query = f"SELECT search_name FROM searches WHERE user_id = '{g.user['id']}' ORDER BY id DESC LIMIT 5"
+        search_request = db.execute(query).fetchall()
+        if search_request:
+            for row in search_request:
+                print(row['search_name'])
+
+            return render_template('weather/recent.html', searches=search_request)
+
+        else:
+            flash("No searches found for the user.")
+        
+    
+    
+    
+    return render_template('weather/recent.html',searches=None)

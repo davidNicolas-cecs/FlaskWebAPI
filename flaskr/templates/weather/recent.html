@@ -2,24 +2,26 @@
 
 
 {% block header %}
-<h1>{%block title %}Recent Searches{% endblock %}</h1>
+<h1>{%block title %}Recent Searches for {{ g.user['username'] }}{% endblock %}</h1>
 {% endblock %}
 
 {% block nav %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
 
 
 {% block content %}
+{% if searches %}
 <div class="list-group">
-    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)" aria-current="true">
-      The current button
-    </button>
-    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A second button item</button>
-    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A third button item</button>
-    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A fourth button item</button>
-    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A fourth button item</button>
-    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A fourth button item</button>
-    <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">A fourth button item</button>
-  </div>
+   {% for search in searches %}
+   <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">
+     {{ search['search_name'] }}
+   </button>
+   {% endfor %}
+{% else %}
+{% endif %}
+
+
+
+ 
   <script>
     function makeActive(event) {
        var previous = document.getElementsByClassName("active");
