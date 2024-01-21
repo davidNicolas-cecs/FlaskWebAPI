@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{%block title %} Weather Displayer  {% endblock %}</h1>
+{% endblock %}
+{% block nav %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
+
+{% block content %}
+<h3> Your Location {{name}}! </h3>
+
+<div class="form-floating">
+     <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+          <option value="1">F</option>
+          <option value="2">C</option>
+          <option value="3">K</option>
+     </select>
+     <label for="floatingSelect">Tempature</label>
+</div>
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+     <p> {{temp}}</p>
+</div>
+
+{% if feels_like != 'off' %}
+<div class="form-floating">
+     <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+       <option value="1">F</option>
+       <option value="2">C</option>
+       <option value="3">K</option>
+     </select>
+     <label for="floatingSelect">Feels like</label>
+   </div>
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+     <p> {{feels_like}}</p>
+</div>
+{% endif %}
+
+{% if pressure != 'off' %}
+<h5>Pressure</h4>
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+     <p> {{ pressure }}</p>
+</div>
+{% endif %}
+
+{% if humidity != 'off' %}
+ <h5>Humidity</h4>
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+     <p> {{ humidity}}</p>
+</div>
+{% endif %}
+
+
+{% endblock %}

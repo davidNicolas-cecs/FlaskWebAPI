@@ -2,6 +2,10 @@ html {
     font-family: sans-serif;
     background: lightblue;
     padding: 1rem;
+    background-image: url('../static/assets/sun.png');
+    background-repeat: no-repeat;
+
+
 }
 
 body {
@@ -13,6 +17,28 @@ body {
 h1 {
     font-family: serif;
     color: #377ba8;
+    margin: 1rem 0;
+}
+
+h2 {
+    font-family: serif;
+    color: #377ba8;
+    margin: 1rem 0;
+}
+h3 {
+    font-family: serif;
+    color: #377ba8;
+    margin: 1rem 0;
+}
+
+h5 {
+    font-family: serif;
+    margin: 1rem 0;
+}
+
+p{
+    font-family:serif;
+    color:377ba8;
     margin: 1rem 0;
 }
 
@@ -135,4 +161,31 @@ input.danger {
 input[type=submit] {
     align-self: start;
     min-width: 10em;
+}
+
+
+
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.list-group-item:hover {
+    background-color: #f8f8f8;
+}
+
+.list-group-item.active {
+    background-color: lightblue;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+.list-group-item.active:hover {
+    background-color: lightblue;
 }

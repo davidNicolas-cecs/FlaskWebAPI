@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+<h1>{%block title %}Recent Searches for {{ g.user['username'] }}{% endblock %}</h1>
+{% endblock %}
+
+{% block nav %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
+
+
+{% block content %}
+{% if searches %}
+<div class="list-group">
+   {% for search in searches %}
+   <button type="button" class="list-group-item list-group-item-action" onclick="makeActive(event)">
+     {{ search['search_name'] }}
+   </button>
+   {% endfor %}
+{% else %}
+{% endif %}
+
+
+
+ 
+  <script>
+    function makeActive(event) {
+       var previous = document.getElementsByClassName("active");
+       if (previous.length > 0) {
+          previous[0].className = previous[0].className.replace(" active", "");
+       }
+       event.target.className += " active";
+    }
+ </script>
+
+{% endblock %}
+
