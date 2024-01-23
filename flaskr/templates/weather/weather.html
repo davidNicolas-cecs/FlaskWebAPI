@@ -8,27 +8,13 @@
 {% block content %}
 <h3> Your Location {{name}}! </h3>
 
-<div class="form-floating">
-     <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-          <option value="1">F</option>
-          <option value="2">C</option>
-          <option value="3">K</option>
-     </select>
-     <label for="floatingSelect">Tempature</label>
-</div>
+<h5>Tempature</h5>
 <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
      <p> {{temp}}</p>
 </div>
 
 {% if feels_like != 'off' %}
-<div class="form-floating">
-     <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-       <option value="1">F</option>
-       <option value="2">C</option>
-       <option value="3">K</option>
-     </select>
-     <label for="floatingSelect">Feels like</label>
-   </div>
+<h5>Feels Like</h5>
 <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
      <p> {{feels_like}}</p>
 </div>

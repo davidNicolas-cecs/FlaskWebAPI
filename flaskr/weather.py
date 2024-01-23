@@ -231,8 +231,4 @@ def searches():
 
         else:
             flash("No searches found for the user.")
-        
-    
-    
-    
     return render_template('weather/recent.html',searches=None)
