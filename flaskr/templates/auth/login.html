@@ -3,7 +3,7 @@
 {% block header %}
   <h1>{% block title %}Log In{% endblock %}</h1>
 {% endblock %}
-
+{% block nav %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
 {% block content %}
   <form method="post">
     <label for="username">Username</label>

@@ -190,3 +190,43 @@ input[type=submit] {
 .list-group-item.active:hover {
     background-color: lightblue;
 }
+/* Add this to your existing style.css file or create a new one if you don't have it */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* Light gray background */
+}
+
+.container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #ffffff; /* White container background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+h3 {
+    color: #377ba8; /* Soft blue heading */
+}
+
+.content {
+    margin-top: 1rem;
+}
+
+/* Optional: Style the navigation link */
+nav ul li a {
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    color: #4a90e2; /* Soft blue color */
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Optional: Style the navigation bar */
+nav {
+    background: #ffffff; /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}

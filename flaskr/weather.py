@@ -110,7 +110,7 @@ def geocoding(city,state_code,country_code,want_humidity,want_pressure,want_feel
     
     Returns: data as a list or false if location not found
     '''
-    load_dotenv()
+    load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
     API_key = os.getenv('API_key')
     limit=1    
     url = f"http://api.openweathermap.org/geo/1.0/direct?q={city},{state_code},{country_code}&limit={limit}&appid={API_key}"

@@ -1,38 +1,55 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>{%block title %} Weather Displayer  {% endblock %}</h1>
+<h1>{% block title %} Weather Displayer {% endblock %}</h1>
 {% endblock %}
-{% block nav %} <li><a href="{{ url_for('weather.index') }}">Go Back Home</a> </li>{% endblock %}
+
+{% block nav %}
+    <li><a href="{{ url_for('weather.index') }}">Go Back Home</a></li>
+{% endblock %}
 
 {% block content %}
-<h3> Your Location {{name}}! </h3>
+    <div class="container">
+        <h3>Your Location {{ name }}!</h3>
 
-<h5>Tempature</h5>
-<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
-     <p> {{temp}}</p>
-</div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Temperature</h5>
+                <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+                    <p>{{ temp }}</p>
+                </div>
+            </div>
 
-{% if feels_like != 'off' %}
-<h5>Feels Like</h5>
-<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
-     <p> {{feels_like}}</p>
-</div>
-{% endif %}
+            {% if feels_like != 'off' %}
+                <div class="col-md-6">
+                    <h5>Feels Like</h5>
+                    <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+                        <p>{{ feels_like }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
 
-{% if pressure != 'off' %}
-<h5>Pressure</h4>
-<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
-     <p> {{ pressure }}</p>
-</div>
-{% endif %}
+        {% if pressure != 'off' or humidity != 'off' %}
+            <div class="row">
+                {% if pressure != 'off' %}
+                    <div class="col-md-6">
+                        <h5>Pressure</h5>
+                        <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+                            <p>{{ pressure }}</p>
+                        </div>
+                    </div>
+                {% endif %}
 
-{% if humidity != 'off' %}
- <h5>Humidity</h4>
-<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
-     <p> {{ humidity}}</p>
-</div>
-{% endif %}
-
-
+                {% if humidity != 'off' %}
+                    <div class="col-md-6">
+                        <h5>Humidity</h5>
+                        <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 m-4">
+                            <p>{{ humidity }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}
