@@ -54,7 +54,7 @@ def index():
         except:
             flash("Could not find the location, Please try again.")
             return redirect(url_for("weather.index"))
-        if data is not None:
+        if data != False:
             #0 - name, 1 - temp, 2 - feels like, 3 - pressure, 4 - humidity
             #if true redirect to weather_displayer function           
             #submit data into the database
@@ -78,8 +78,6 @@ def index():
                     
             return redirect(url_for('weather.weather_displayer', name=data[0], temp=data[1], feels_like=data[2], pressure=data[3], humidity=data[4]))
         else:
-            error = "The search location could not be found"
-            flash(error)
             return redirect(url_for('weather.index'))
     return render_template('weather/index.html')
 
@@ -120,6 +118,7 @@ def geocoding(city,state_code,country_code,want_humidity,want_pressure,want_feel
     error = ""
     data = []
     if response.status_code == 200:
+        print('Request successful')
         data_list = response.json() #get data from response
         # Access data 
         first_item = data_list[0]
@@ -129,8 +128,13 @@ def geocoding(city,state_code,country_code,want_humidity,want_pressure,want_feel
         data.append(name)
         current_weather(lat,lon,API_key,data,want_humidity,want_pressure,want_feels_like)
     else:
-        error = f'Could not find the location{response.status_code}'
-        flash(error)  
+        if response.status_code == 401:
+            print(f'could not make request {response.status_code}')
+            error = 'Could not fetch location at this time. Please try again later.'
+        elif response.status_code == 404:
+            print(f'Specified the wrong city name, ZIP-code or city ID')  
+            error = 'Specified the wrong city name, ZIP-code or city ID'
+        flash(error)
         return False
     return data
 
