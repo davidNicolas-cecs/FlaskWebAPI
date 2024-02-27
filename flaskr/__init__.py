@@ -4,14 +4,17 @@ from flask import Flask
 from . import db
 from . import auth
 from . import weather
+import os
+from dotenv import load_dotenv
 
 
 
 def create_app(test_config=None):
+    load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY=os.getenv('SECRET_KEY'),
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
 
